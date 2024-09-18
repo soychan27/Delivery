@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>가게 리스트</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+
+        h2 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .button-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+
+        .button {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            text-decoration: none;
+            color: white;
+            background-color: #007BFF;
+            transition: background-color 0.3s;
+            cursor: pointer;
+        }
+
+        .button:hover {
+            background-color: #0056b3;
+        }
+
+        .status-button {
+            background-color: #28a745;
+        }
+
+        .status-button:hover {
+            background-color: #218838;
+        }
+
+        .closed-button {
+            background-color: #dc3545;
+        }
+
+        .closed-button:hover {
+            background-color: #c82333;
+        }
+
+        .register-button {
+            background-color: #ffc107;
+        }
+
+        .register-button:hover {
+            background-color: #e0a800;
+        }
+    </style>
+</head>
+<body>
+
+<h2>가게 리스트</h2>
+
+<div class="button-container">
+    <a href="/list/Korean" class="button">한식</a>
+    <a href="/list/Chinese" class="button">중식</a>
+    <a href="/list/Japanese" class="button">일식</a>
+    <a href="/list/Italian" class="button">양식</a>
+    <a href="/list/FastFood" class="button">패스트푸드</a>
+    <a href="/list/Cafe" class="button">커피, 디저트</a>
+    <a href="/list/Other" class="button">그 외</a>
+</div>
+
+<div class="button-container">
+    <a href="/list/Status/OPEN" class="button status-button">영업 중</a>
+    <a href="/list/Status/CLOSED" class="button closed-button">영업 종료</a>
+</div>
+
+<div class="button-container">
+    <a href="/list/join" class="button register-button">가게 등록</a>
+</div>
+
+</body>
+</html>

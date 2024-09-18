@@ -2,17 +2,18 @@ package com.study.delivery.model;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
-import lombok.Getter;
-import lombok.Setter;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
+import lombok.Data;
 
 @Entity
-@Getter
-@Setter
-
+@Data
 public class Menu {
     @Id
     private Integer menukey;
 
+    @ManyToOne
+    @JoinColumn(name = "restkey")
     private Restaurant restaurant;
 
     private String image_name;

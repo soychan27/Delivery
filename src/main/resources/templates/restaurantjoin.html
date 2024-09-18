@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>가게 등록</title>
+</head>
+<body>
+<h2>가게 등록 페이지</h2>
+<form action="/list/join/pro" method="post" th:object="${restaurant}">
+    <div>
+        <label>가게 이름:</label>
+        <input type="text" th:field="*{name}" />
+        <span th:if="${#fields.hasErrors('name')}" th:errors="*{name}"></span>
+    </div>
+    <div>
+        <label>카테고리:</label>
+        <select th:field="*{category}">
+            <option value="Korean">한식</option>
+            <option value="Chinese">중식</option>
+            <option value="Japanese">일식</option>
+            <option value="Italian">양식</option>
+            <option value="FastFood">패스트푸드</option>
+            <option value="Cafe">커피, 디저트</option>
+            <option value="Other">그 외</option>
+        </select>
+        <span th:if="${#fields.hasErrors('category')}" th:errors="*{category}"></span>
+    </div>
+    <div>
+        <label>운영 시간:</label>
+        <input type="text" th:field="*{operationhour}" />
+    </div>
+    <div>
+        <label>배달 팁:</label>
+        <input type="number" th:field="*{deliverytip}" />
+    </div>
+    <div>
+        <label>상태:</label>
+        <select th:field="*{status}">
+            <option value="open">영업 중</option>
+            <option value="closed">휴업 중</option>
+        </select>
+        <span th:if="${#fields.hasErrors('status')}" th:errors="*{status}"></span>
+    </div>
+    <div>
+        <label>전화번호:</label>
+        <input type="text" th:field="*{phone}" />
+    </div>
+    <div>
+        <label>공지사항:</label>
+        <textarea th:field="*{notification}"></textarea>
+    </div>
+    <button type="submit">등록</button>
+</form>
+<a href="/list">뒤로가기</a>
+</body>
+</html>

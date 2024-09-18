@@ -1,15 +1,10 @@
 package com.study.delivery.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import lombok.Getter;
-import lombok.Setter;
+import jakarta.persistence.*;
+import lombok.Data;
 
 @Entity
-@Getter
-@Setter
+@Data
 public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -23,7 +18,9 @@ public class User {
 
     private String email;
 
-    private Role role; // 이 부분을 Enum 타입으로 사용하려면 따로 Enum 클래스를 정의할 수 있습니다.
+    @Enumerated(EnumType.STRING)
+    @Column(length = 20)
+    private Role role = Role.guest;
 
     private String tel;
 
@@ -32,6 +29,6 @@ public class User {
     private String providerid;
 
     public enum Role {
-        CUSTOMER, BOSS, ADMIN
+        guest, boss, admin
     }
 }

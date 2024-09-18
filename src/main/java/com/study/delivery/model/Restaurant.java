@@ -1,17 +1,10 @@
 package com.study.delivery.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.ManyToOne;
-import lombok.Getter;
-import lombok.Setter;
+import jakarta.persistence.*;
+import lombok.Data;
 
 @Entity
-@Getter
-@Setter
+@Data
 public class Restaurant {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -19,11 +12,12 @@ public class Restaurant {
 
     @ManyToOne
     @JoinColumn(name = "userkey")
-    private User user;
+    private User user;  // User 엔티티가 잘 정의되어 있는지 확인
 
     private Integer deliverytip;
 
-    private Category category; // Enum 타입으로 변경
+    @Enumerated(EnumType.STRING)
+    private Category category;
 
     private String name;
 
@@ -33,17 +27,18 @@ public class Restaurant {
 
     private String operationhour;
 
-    private Status status; // Enum 타입으로 변경
+    @Enumerated(EnumType.STRING)
+    private Status status;
 
     private String phone;
 
     private String notification;
 
     public enum Category {
-        KOREAN, CHINESE, ITALIAN, FASTFOOD, CAFE, OTHER
+        Korean, Chinese, Italian, Japanese, FastFood, Cafe, Other
     }
 
     public enum Status {
-        OPEN, CLOSED
+        open, closed
     }
 }

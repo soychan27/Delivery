@@ -6,22 +6,22 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.Data;
 
 @Entity
-@Getter
-@Setter
-public class Menu_detail {
+@Data
+public class OrderMenu {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer menudetailkey;
+    private Integer ordermenukey;
 
     @ManyToOne
-    @JoinColumn(name = "menukey", nullable = false)
-    private Menu menu;
+    @JoinColumn(name = "orderkey", nullable = false)
+    private DeliveryOrder order;
 
-    private Integer quantity;
+    @ManyToOne
+    @JoinColumn(name = "menudetailkey", nullable = false)
+    private MenuDetail menuDetail;
 
     private Integer price;
 }
